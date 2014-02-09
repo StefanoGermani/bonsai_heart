@@ -191,7 +191,6 @@ DEPENDENCIES
   ember-rails
   ember-source
   factory_girl_rails
-  jquery-rails
   librarian (>= 0.0.25)
   minitest-reporters
   pg
