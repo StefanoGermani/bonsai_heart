@@ -37,6 +37,7 @@ GEM
       ember-source
       execjs
       handlebars-source
+    bcrypt-ruby (3.1.2)
     better_errors (1.0.1)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -52,6 +53,12 @@ GEM
       execjs
     coffee-script-source (1.7.0)
     debug_inspector (0.0.2)
+    devise (3.2.2)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
     diff-lcs (1.2.4)
     ember-data-source (0.14)
       ember-source
@@ -78,9 +85,6 @@ GEM
     highline (1.6.20)
     hike (1.2.3)
     i18n (0.6.9)
-    jbuilder (1.5.3)
-      activesupport (>= 3.0.0)
-      multi_json (>= 1.2.0)
     jquery-rails (3.1.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
@@ -99,6 +103,7 @@ GEM
       minitest (>= 2.12, < 5.0)
       powerbar
     multi_json (1.8.4)
+    orm_adapter (0.5.0)
     pg (0.17.1)
     polyglot (0.3.3)
     powerbar (1.0.11)
@@ -170,6 +175,8 @@ GEM
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    warden (1.2.3)
+      rack (>= 1.0)
 
 PLATFORMS
   ruby
@@ -180,10 +187,10 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   coffee-rails (~> 4.0.0)
+  devise
   ember-rails
   ember-source
   factory_girl_rails
-  jbuilder (~> 1.2)
   jquery-rails
   librarian (>= 0.0.25)
   minitest-reporters
