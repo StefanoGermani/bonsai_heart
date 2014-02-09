@@ -1,9 +1,6 @@
-#= require handlebars
-#= require ember
-#= require ember-data
+#= require jquery
+#= require jquery_ujs
+#= require twitter/bootstrap
 #= require_self
-#= require rikku_web
 
-# for more details see: http://emberjs.com/guides/application/
-window.RikkuWeb = Ember.Application.create()
 
