@@ -11,6 +11,9 @@ gem 'active_model_serializers'
 gem 'ember-rails'
 gem 'ember-source'
 
+# API Versioning
+gem 'api-versions', '~> 1.0'
+
 # Authentication
 gem 'devise'
 
