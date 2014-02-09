@@ -219,7 +219,7 @@ DEPENDENCIES
   factory_girl_rails
   jquery-rails
   less-rails
-  librarian (>= 0.0.25)
+  librarian
   minitest-reporters
   pg
   qunit-rails
