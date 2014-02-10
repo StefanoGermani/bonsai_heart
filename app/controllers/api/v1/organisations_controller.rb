@@ -1,4 +1,4 @@
-class OrganisationsController < ApplicationController
+class API::V1::OrganisationsController < ApplicationController
   before_action :set_organisation, only: [:show, :edit, :update, :destroy]
 
   # GET /organisations
@@ -22,12 +22,6 @@ class OrganisationsController < ApplicationController
   # POST /organisations
   def create
     @organisation = Organisation.new(organisation_params)
-
-    if @organisation.save
-      redirect_to @organisation, notice: 'Organisation was successfully created.'
-    else
-      render action: 'new'
-    end
   end
 
   # PATCH/PUT /organisations/1
