@@ -1,5 +1,7 @@
 RikkuWeb::Application.routes.draw do
 
+  resources :organisations
+
   devise_for :users
   root :to => 'home#index'
 
