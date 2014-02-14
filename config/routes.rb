@@ -1,12 +1,18 @@
 RikkuWeb::Application.routes.draw do
 
-  resources :organisations
-
   devise_for :users
   root :to => 'home#index'
 
   get 'home/index'
-  get 'ember_app/index'
+
+
+  api vendor_string: 'rikku', default_version: 1, path: '' do
+    version 1 do
+      cache as: 'v1' do
+        resources :organisations
+      end
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,4 +1,4 @@
-class API::V1::OrganisationsController < ApplicationController
+class API::V1::OrganisationsController < API::V1::ApiController
   before_action :set_organisation, only: [:show, :edit, :update, :destroy]
 
   # GET /organisations
@@ -8,11 +8,6 @@ class API::V1::OrganisationsController < ApplicationController
 
   # GET /organisations/1
   def show
-  end
-
-  # GET /organisations/new
-  def new
-    @organisation = Organisation.new
   end
 
   # GET /organisations/1/edit
@@ -36,7 +31,7 @@ class API::V1::OrganisationsController < ApplicationController
   # DELETE /organisations/1
   def destroy
     @organisation.destroy
-    redirect_to organisations_url, notice: 'Organisation was successfully destroyed.'
+    render json: success_json
   end
 
   private

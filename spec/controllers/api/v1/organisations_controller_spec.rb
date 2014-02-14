@@ -18,38 +18,31 @@ require 'spec_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
-describe OrganisationsController do
+describe API::V1::OrganisationsController do
 
   # This should return the minimal set of attributes required to create a valid
   # Organisation. As you add validations to Organisation, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "name" => "MyString" } }
+  let(:valid_attributes) { { 'name' => 'Organisation'} }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # OrganisationsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe "GET index" do
-    it "assigns all organisations as @organisations" do
+  describe 'GET index' do
+    it 'assigns all organisations as @organisations' do
       organisation = Organisation.create! valid_attributes
       get :index, {}, valid_session
       assigns(:organisations).should eq([organisation])
     end
   end
 
-  describe "GET show" do
-    it "assigns the requested organisation as @organisation" do
+  describe 'GET show' do
+    it 'assigns the requested organisation as @organisation' do
       organisation = Organisation.create! valid_attributes
       get :show, {:id => organisation.to_param}, valid_session
       assigns(:organisation).should eq(organisation)
-    end
-  end
-
-  describe "GET new" do
-    it "assigns a new organisation as @organisation" do
-      get :new, {}, valid_session
-      assigns(:organisation).should be_a_new(Organisation)
     end
   end
 
