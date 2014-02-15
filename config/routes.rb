@@ -6,12 +6,8 @@ RikkuWeb::Application.routes.draw do
   get 'home/index'
 
 
-  api vendor_string: 'rikku', default_version: 1, path: '' do
-    version 1 do
-      cache as: 'v1' do
-        resources :organisations
-      end
-    end
+  api_version(:module => 'V1', :header => {:name => 'Accept', :value => 'application/vnd.rikku.com; version=1'}, :default => true) do
+    resources :organisations
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

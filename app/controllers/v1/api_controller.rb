@@ -1,4 +1,4 @@
-class API::V1::ApiController < ApplicationController
+class V1::ApiController < ApplicationController
   respond_to :json
 
   protected

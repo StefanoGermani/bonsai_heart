@@ -12,7 +12,7 @@ gem 'ember-rails'
 gem 'ember-source'
 
 # API Versioning
-gem 'api-versions', '~> 1.0'
+gem 'versionist'
 
 # Authentication
 gem 'devise'
@@ -46,7 +46,7 @@ end
 
 group :development, :test do
   gem 'qunit-rails'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '3.0.0.beta1'
   gem 'shoulda'
   gem 'factory_girl_rails'
   gem 'minitest-reporters'
