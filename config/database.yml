@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: rikku_web_development
+  database: bonsai_heart_development
   pool: 5
   username: rikku
   password:
@@ -30,7 +30,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: rikku_web_test
+  database: bonsai_heart_test
   pool: 5
   username: rikku
   password:
@@ -38,7 +38,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: rikku_web_production
+  database: bonsai_heart_test
   pool: 5
   username: rikku
   password:

@@ -1,5 +1,5 @@
 # For more information see: http://emberjs.com/guides/routing/
 
-RikkuWeb.Router.map ()->
+BonsaiHeart.Router.map ()->
   # @resource('posts')
 

@@ -1,4 +1,4 @@
-RikkuWeb::Application.routes.draw do
+BonsaiHeart::Application.routes.draw do
 
   devise_for :users
   root :to => 'home#index'
@@ -6,8 +6,8 @@ RikkuWeb::Application.routes.draw do
   get 'home/index'
 
 
-  api_version(:module => 'V1', :header => {:name => 'Accept', :value => 'application/vnd.rikku.com; version=1'}, :default => true) do
-    resources :organisations
+  api_version(:module => 'V1', :header => {:name => 'Accept', :value => 'application/vnd.bonsaiheart.com; version=1'}, :default => true) do
+    resources :bonsais
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

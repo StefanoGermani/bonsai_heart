@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe V1::OrganisationsController do
+describe V1::BonsaisController do
 
   describe 'GET index' do
     subject { get :index }
@@ -13,20 +13,20 @@ describe V1::OrganisationsController do
 
     context 'when user is valid' do
       login_user
-      let(:organisation1) { create(:organisation) }
-      let(:organisation2) { create(:organisation) }
+      let(:bonsai1) { create(:bonsai) }
+      let(:bonsai2) { create(:bonsai) }
 
       it { should be_success }
       it 'get the requested json' do
-        serializer = ActiveModel::ArraySerializer.new [organisation1, organisation2]
-        expect(subject.body).to eq("{\"organisations\":#{serializer.to_json}}")
+        serializer = ActiveModel::ArraySerializer.new [bonsai1, bonsai2]
+        expect(subject.body).to eq("{\"bonsais\":#{serializer.to_json}}")
       end
     end
   end
 
   describe 'GET show' do
-    let(:organisation) { create(:organisation) }
-    subject { get :show, {:id => organisation.to_param} }
+    let(:bonsai) { create(:bonsai) }
+    subject { get :show, {:id => bonsai.to_param} }
 
     context 'when user is invalid' do
       it 'returns unauthorized status' do
@@ -35,16 +35,16 @@ describe V1::OrganisationsController do
     end
     context 'when user is valid' do
       login_user
-      it 'get the requested organisation as json' do
-        serializer = OrganisationSerializer.new organisation
+      it 'get the requested bonsai as json' do
+        serializer = BonsaiSerializer.new bonsai
         expect(subject.body).to eq(serializer.to_json)
       end
     end
   end
 
   describe 'POST create' do
-    let(:organisation) { build(:organisation) }
-    subject { post :create, {organisation: organisation.attributes} }
+    let(:bonsai) { build(:bonsai) }
+    subject { post :create, {bonsai: bonsai.attributes} }
 
     context 'when user is invalid' do
       it 'returns unauthorized status' do
@@ -54,7 +54,7 @@ describe V1::OrganisationsController do
     context 'when user is valid' do
       login_user
       context 'with valid params' do
-        before { expect_any_instance_of(Organisation).to receive(:save).and_call_original }
+        before { expect_any_instance_of(Bonsai).to receive(:save).and_call_original }
 
         it 'returns status 201' do
           expect(subject.status).to eq(201)
@@ -62,7 +62,7 @@ describe V1::OrganisationsController do
       end
 
       context 'with invalid params' do
-        before { allow_any_instance_of(Organisation).to receive(:save).and_return(false) }
+        before { allow_any_instance_of(Bonsai).to receive(:save).and_return(false) }
 
         it 'returns status 400' do
           expect(subject.status).to eq(400)
@@ -72,11 +72,11 @@ describe V1::OrganisationsController do
   end
 
   describe 'PUT update' do
-    let(:organisation) { create(:organisation) }
+    let(:bonsai) { create(:bonsai) }
 
-    before { organisation.name = 'NewName' }
+    before { bonsai.name = 'NewName' }
 
-    subject { put :update, {:id => organisation.to_param, organisation: organisation.attributes} }
+    subject { put :update, {:id => bonsai.to_param, bonsai: bonsai.attributes} }
     context 'when user is invalid' do
       it 'returns unauthorized status' do
         expect(subject.status).to eq(401)
@@ -85,14 +85,14 @@ describe V1::OrganisationsController do
     context 'when user is valid' do
       login_user
       context 'with valid params' do
-        before { expect_any_instance_of(Organisation).to receive(:update).and_call_original }
+        before { expect_any_instance_of(Bonsai).to receive(:update).and_call_original }
 
         it { should be_success }
 
       end
 
       context 'with invalid params' do
-        before { expect_any_instance_of(Organisation).to receive(:update).and_return(false) }
+        before { expect_any_instance_of(Bonsai).to receive(:update).and_return(false) }
 
         it 'returns status 400' do
           expect(subject.status).to eq(400)
@@ -102,9 +102,9 @@ describe V1::OrganisationsController do
   end
 
   describe 'DELETE destroy' do
-    let(:organisation) { create(:organisation) }
+    let(:bonsai) { create(:bonsai) }
 
-    subject { delete :destroy, {:id => organisation.to_param} }
+    subject { delete :destroy, {:id => bonsai.to_param} }
 
     context 'when user is invalid' do
       it 'returns unauthorized status' do
@@ -115,14 +115,14 @@ describe V1::OrganisationsController do
       login_user
 
       context 'with valid params' do
-        before { expect_any_instance_of(Organisation).to receive(:destroy).and_call_original }
+        before { expect_any_instance_of(Bonsai).to receive(:destroy).and_call_original }
         it 'returns status 204' do
           expect(subject.status).to eq(204)
         end
       end
 
       context 'with invalid params' do
-        before { expect_any_instance_of(Organisation).to receive(:destroy).and_return(false) }
+        before { expect_any_instance_of(Bonsai).to receive(:destroy).and_return(false) }
 
         it 'returns status 400' do
           expect(subject.status).to eq(400)

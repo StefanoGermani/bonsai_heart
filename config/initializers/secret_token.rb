@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-RikkuWeb::Application.config.secret_key_base = '6738deebf5e051ac3188eed450d289a19bc49ff3b1b8c478e5447553deb399dc6be20f36e01e0a2cfd2a2727ee9b07f08a8b55e0adb95a1fe53833dd3cb27a62'
+BonsaiHeart::Application.config.secret_key_base = '6738deebf5e051ac3188eed450d289a19bc49ff3b1b8c478e5447553deb399dc6be20f36e01e0a2cfd2a2727ee9b07f08a8b55e0adb95a1fe53833dd3cb27a62'

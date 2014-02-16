@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-RikkuWeb::Application.load_tasks
+BonsaiHeart::Application.load_tasks
