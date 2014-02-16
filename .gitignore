@@ -17,3 +17,6 @@ Rubymine files
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Database config
+/config/database.yml

@@ -1,0 +1,4 @@
+test:
+  adapter: postgresql
+  database: bonsai_heart_test
+  username: postgres
