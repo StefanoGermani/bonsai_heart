@@ -1,6 +1,10 @@
 language: ruby
 rvm: 2.0.0
 services: postgresql
+
+bundler_args: --without development --deployment
+cache: bundler
+
 before_script:
   - cp config/database.travis.yml config/database.yml
   - psql -c 'create database bonsai_heart_test;' -U postgres
