@@ -32,7 +32,7 @@ describe V1::OrganisationsController do
     let(:organisation) { build(:organisation) }
 
     context 'with valid params' do
-      before { expect_any_instance_of(Organisation).to receive(:save) }
+      before { expect_any_instance_of(Organisation).to receive(:save).and_call_original }
       subject { post :create, {organisation: organisation.attributes} }
 
       it 'returns status 201' do
@@ -61,7 +61,7 @@ describe V1::OrganisationsController do
     subject { put :update, {:id => organisation.to_param, organisation: organisation.attributes} }
 
     context 'with valid params' do
-      before { expect_any_instance_of(Organisation).to receive(:update) }
+      before { expect_any_instance_of(Organisation).to receive(:update).and_call_original }
 
       it { should be_success }
 
@@ -81,9 +81,19 @@ describe V1::OrganisationsController do
 
     subject { delete :destroy, {:id => organisation.to_param} }
 
-    it "redirects to the organisations list" do
-      delete :destroy, {:id => organisation.to_param}
-      response.should redirect_to(organisations_url)
+    context 'with valid params' do
+      before { expect_any_instance_of(Organisation).to receive(:destroy).and_call_original }
+      it 'returns status 204' do
+        expect(subject.status).to eq(204)
+      end
+    end
+
+    context 'with invalid params' do
+      before { expect_any_instance_of(Organisation).to receive(:destroy).and_return(false) }
+
+      it 'returns status 406' do
+        expect(subject.status).to eq(406)
+      end
     end
   end
 

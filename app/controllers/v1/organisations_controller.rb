@@ -32,14 +32,20 @@ class V1::OrganisationsController < V1::ApiController
 
   # DELETE /organisations/1
   def destroy
-    @organisation.destroy
-    render json: success_json
+    if @organisation.destroy
+      render nothing: true, status: :no_content
+    else
+      render nothing: true, status: :not_acceptable
+    end
   end
 
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_organisation
     @organisation = Organisation.find(params[:id])
+    if not @organisation
+      render nothing: true, status: :not_found
+    end
   end
 
   # Only allow a trusted parameter "white list" through.
