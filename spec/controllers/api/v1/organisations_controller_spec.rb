@@ -45,8 +45,8 @@ describe V1::OrganisationsController do
 
       subject { post :create, {organisation: organisation.attributes} }
 
-      it 'returns status 406' do
-        expect(subject.status).to eq(406)
+      it 'returns status 400' do
+        expect(subject.status).to eq(400)
       end
     end
   end
@@ -70,8 +70,8 @@ describe V1::OrganisationsController do
     context 'with invalid params' do
       before { expect_any_instance_of(Organisation).to receive(:update).and_return(false) }
 
-      it 'returns status 406' do
-        expect(subject.status).to eq(406)
+      it 'returns status 400' do
+        expect(subject.status).to eq(400)
       end
     end
   end
@@ -91,8 +91,8 @@ describe V1::OrganisationsController do
     context 'with invalid params' do
       before { expect_any_instance_of(Organisation).to receive(:destroy).and_return(false) }
 
-      it 'returns status 406' do
-        expect(subject.status).to eq(406)
+      it 'returns status 400' do
+        expect(subject.status).to eq(400)
       end
     end
   end

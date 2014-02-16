@@ -17,7 +17,7 @@ class V1::OrganisationsController < V1::ApiController
     if @organisation.save
       render json: @organisation, status: :created
     else
-      render json: @organisation, status: :not_acceptable
+      render json: @organisation, status: :bad_request
     end
   end
 
@@ -26,7 +26,7 @@ class V1::OrganisationsController < V1::ApiController
     if @organisation.update(organisation_params)
       render json: @organisation
     else
-      render json: @organisation, status: :not_acceptable
+      render json: @organisation, status: :bad_request
     end
   end
 
@@ -35,7 +35,7 @@ class V1::OrganisationsController < V1::ApiController
     if @organisation.destroy
       render nothing: true, status: :no_content
     else
-      render nothing: true, status: :not_acceptable
+      render nothing: true, status: :bad_request
     end
   end
 
