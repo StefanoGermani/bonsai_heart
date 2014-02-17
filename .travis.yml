@@ -10,7 +10,7 @@ deploy:
   provider: heroku
   api_key:
     secure: Bem/owvClQLmT3ly6mSKZkh0y9UEVxgAJKuIrL0UW8D6BjZeOk3YYFKGYBhKYE87qORbUWb+7ijDXm9oNhGtVEyttVJ3i5LDMq9tiNLs5uRidL5M6bfuqQAFbgEhAKx9VRzqHTMhMf1/hcZy9eO5ZFI/rU18jGIQI7NyxciB1yE=
-  app: bonsai_heart
+  app: bonsai-heart
   run:
     - "rake db:migrate"
     - restart
