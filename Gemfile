@@ -29,7 +29,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-gem 'therubyracer'
+
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -44,6 +44,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'therubyracer'
   gem 'qunit-rails'
   gem 'rspec-rails', '3.0.0.beta1'
   gem 'shoulda'
