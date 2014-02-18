@@ -5,3 +5,6 @@
 #= require ember-data
 #= require_self
 #= require emberapp
+
+# creating emberjs app
+window.BonsaiHeart = Ember.Application.create()
