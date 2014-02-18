@@ -11,7 +11,9 @@
     </div>
     <div class="navbar-collapse collapse">
       <div class="navbar-form navbar-right" >
-        <%= button_to 'Sign in', new_user_session_path, :class => 'btn btn-success', :method => :get  %>
+        <%= link_to new_user_session_path do %>
+        <button class='btn btn-success'>Sign in</button> 
+        <% end %>
       </div>
     </div><!--/.navbar-collapse -->
   </div>
