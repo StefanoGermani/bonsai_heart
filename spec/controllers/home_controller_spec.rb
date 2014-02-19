@@ -5,6 +5,7 @@ describe HomeController do
 
   describe "GET 'index'" do
     subject { get :index }
+
     context 'when user is not logged in' do
 
       it { should be_success }
