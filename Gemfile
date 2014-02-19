@@ -30,6 +30,9 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+# Unicorn server
+gem 'unicorn'
+
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
