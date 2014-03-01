@@ -14,3 +14,5 @@ deploy:
   run:
     - "rake db:migrate"
     - restart
+notifications:
+  email: false
