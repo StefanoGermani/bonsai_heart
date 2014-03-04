@@ -4,7 +4,7 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
-Rubymine files
+# Rubymine files
 /.idea
 
 # Ignore bundler config.
@@ -20,3 +20,9 @@ Rubymine files
 
 # Database config
 /config/database.yml
+
+# Ignore vagrant
+/.vagrant
+
+# Ignore chef cookbooks
+/cookbooks
