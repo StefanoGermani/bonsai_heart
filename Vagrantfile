@@ -28,6 +28,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe 'rbenv::user'
     chef.add_recipe 'rbenv::vagrant'
     chef.add_recipe 'vim'
+    chef.add_recipe 'postgresql::server'
 
     chef.json = {
         rbenv: {
@@ -41,7 +42,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
                                     ]
                                 }
                             }]
-        }
+        },
+
+        postgresql: {
+            password: {
+                postgres: 'postgres',
+                bonsai_heart: 'bonsai_heart'
+            }
+        },
     }
   end
 
