@@ -21,8 +21,8 @@
 # Database config
 /config/database.yml
 
-# Ignore vagrant
+# Vagrant
 /.vagrant
 
-# Ignore chef cookbooks
+# Chef cookbooks
 /cookbooks

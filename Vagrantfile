@@ -22,6 +22,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision 'chef_solo' do |chef|
 
+    chef.cookbooks_path = %w(cookbooks my_cookbooks)
+
     chef.add_recipe 'apt'
     chef.add_recipe 'nodejs'
     chef.add_recipe 'ruby_build'
@@ -30,6 +32,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe 'vim'
     chef.add_recipe 'postgresql::server'
     chef.add_recipe 'postgresql::libpq'
+    chef.add_recipe 'bonsai_heart_install'
 
     chef.json = {
         rbenv: {
