@@ -9,8 +9,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
 
-  config.vm.box = 'CentOS'
-  config.vm.box_url = 'https://github.com/2creatives/vagrant-centos/releases/download/v6.5.1/centos65-x86_64-20131205.box'
+  config.vm.box = 'Precise64'
+  config.vm.box_url = 'http://files.vagrantup.com/precise64.box'
 
   config.vm.network :forwarded_port, guest: 3000, host: 3000
 
@@ -18,7 +18,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ['modifyvm', :id, '--memory', '2048']
   end
 
-  config.vm.provision 'shell', inline: 'sudo yum update -y && curl -L https://www.opscode.com/chef/install.sh | bash'
+  config.vm.provision 'shell', inline: 'apt-get update -y && sudo apt-get install curl -y && curl -L https://www.opscode.com/chef/install.sh | sudo bash'
 
   config.vm.provision 'chef_solo' do |chef|
 
@@ -29,6 +29,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe 'rbenv::vagrant'
     chef.add_recipe 'vim'
     chef.add_recipe 'postgresql::server'
+    chef.add_recipe 'postgresql::libpq'
 
     chef.json = {
         rbenv: {
@@ -45,11 +46,24 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         },
 
         postgresql: {
-            password: {
-                postgres: 'postgres',
-                bonsai_heart: 'bonsai_heart'
-            }
-        },
+            users: [
+                {
+                    username: 'bonsaiheart',
+                    password: 'password',
+                    superuser: true,
+                    createdb: true,
+                    login: true
+                }
+            ],
+            pg_hba: [
+              { type: 'local', db: 'all', user: 'postgres',   addr: '',             method: 'md5'},
+              { type: 'local', db: 'all', user: 'all',        addr: '',             method: 'md5'},
+              { type: 'host',  db: 'all', user: 'all',        addr: '127.0.0.1/32', method: 'md5'},
+              { type: 'host',  db: 'all', user: 'all',        addr: '::1/128',      method: 'md5'},
+              { type: 'host',  db: 'all', user: 'postgres',   addr: '127.0.0.1/32', method: 'md5'},
+              { type: 'host',  db: 'all', user: 'username',   addr: '127.0.0.1/32', method: 'md5'}
+          ]
+        }
     }
   end
 

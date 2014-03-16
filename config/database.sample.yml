@@ -1,16 +1,22 @@
 development:
   adapter: postgresql
-  encoding: unicode
+  encoding: UTF-8
   database: bonsai_heart_development
   pool: 5
-  username: postgres
-  password: postgres
+  template: template0
+  collation: en_US.UTF8
+  ctype: en_US.UTF8
+  username: bonsaiheart
+  password: password
 
 test:
   adapter: postgresql
-  encoding: unicode
+  encoding: UTF-8
   database: bonsai_heart_test
   pool: 5
-  username: postgres
-  password: postgres
+  template: template0
+  collation: en_US.UTF8
+  ctype: en_US.UTF8
+  username: bonsaiheart
+  password: password
 
