@@ -13,12 +13,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box_url = 'http://files.vagrantup.com/precise64.box'
 
   config.vm.network :forwarded_port, guest: 3000, host: 3000
+  config.vm.network :forwarded_port, guest: 1234, host: 1234
 
   config.vm.provider :virtualbox do |vb|
     vb.customize ['modifyvm', :id, '--memory', '2048']
   end
 
-  #config.vm.provision 'shell', inline: 'apt-get update -y && sudo apt-get install curl -y && curl -L https://www.opscode.com/chef/install.sh | sudo bash'
+  config.vm.provision 'shell', inline: 'apt-get update -y && sudo apt-get install curl -y && curl -L https://www.opscode.com/chef/install.sh | sudo bash'
 
   config.vm.provision 'chef_solo' do |chef|
 

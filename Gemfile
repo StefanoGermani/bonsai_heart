@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.2'
+gem 'rails', '4.0.3'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -33,7 +33,6 @@ gem 'jquery-rails'
 # Unicorn server
 gem 'unicorn'
 
-
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -48,7 +47,7 @@ end
 group :development, :test do
   gem 'therubyracer'
   gem 'qunit-rails'
-  gem 'rspec-rails', '3.0.0.beta1'
+  gem 'rspec-rails', '3.0.0.beta2'
   gem 'shoulda'
   gem 'factory_girl_rails'
   gem 'minitest-reporters'
