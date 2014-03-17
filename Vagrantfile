@@ -18,7 +18,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ['modifyvm', :id, '--memory', '2048']
   end
 
-  config.vm.provision 'shell', inline: 'apt-get update -y && sudo apt-get install curl -y && curl -L https://www.opscode.com/chef/install.sh | sudo bash'
+  #config.vm.provision 'shell', inline: 'apt-get update -y && sudo apt-get install curl -y && curl -L https://www.opscode.com/chef/install.sh | sudo bash'
 
   config.vm.provision 'chef_solo' do |chef|
 
@@ -32,7 +32,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe 'vim'
     chef.add_recipe 'postgresql::server'
     chef.add_recipe 'postgresql::libpq'
-    chef.add_recipe 'bonsai_heart_install'
+    chef.add_recipe 'bonsai_heart_installer'
 
     chef.json = {
         rbenv: {
@@ -59,12 +59,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
                 }
             ],
             pg_hba: [
-              { type: 'local', db: 'all', user: 'postgres',   addr: '',             method: 'md5'},
+              { type: 'local', db: 'all', user: 'postgres',   addr: '',             method: 'trust'},
               { type: 'local', db: 'all', user: 'all',        addr: '',             method: 'md5'},
               { type: 'host',  db: 'all', user: 'all',        addr: '127.0.0.1/32', method: 'md5'},
               { type: 'host',  db: 'all', user: 'all',        addr: '::1/128',      method: 'md5'},
-              { type: 'host',  db: 'all', user: 'postgres',   addr: '127.0.0.1/32', method: 'md5'},
-              { type: 'host',  db: 'all', user: 'username',   addr: '127.0.0.1/32', method: 'md5'}
+              { type: 'host',  db: 'all', user: 'postgres',   addr: '127.0.0.1/32', method: 'md5'}
           ]
         }
     }

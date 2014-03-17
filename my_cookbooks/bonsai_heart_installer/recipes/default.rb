@@ -2,28 +2,35 @@
 # Cookbook Name:: bonsai_heart_installer
 # Recipe:: default
 #
-# Copyright 2014, YOUR_COMPANY_NAME
+# Copyright 2014, ThunderCode
 #
 # All rights reserved - Do Not Redistribute
 #
 
-execute 'go-to-app-folder' do
-  command 'cd /vagrant'
+Chef::Log.info 'Installing ruby gems...'
+
+bash 'install-ruby-gems' do
+  code  "su vagrant -l -c 'cd /vagrant && bash -i bundle'"
+  action :run
 end
 
-execute 'install-ruby-gems' do
-  command 'bundle'
+bash 'copy-database-config' do
+  code 'cp /vagrant/config/database.vagrant.yml /vagrant/config/database.yml -f'
+  action :run
 end
 
-execute 'create-databases' do
-  command 'rake db:create'
+bash 'create-databases' do
+  code  "su vagrant -l -c 'cd /vagrant && bash -i rake db:create'"
+  action :run
 end
 
-execute 'migrate-dev-database' do
-  command 'rake db:migrate RAILS_ENV=development'
+bash 'migrate-dev-database' do
+  code  "su vagrant -l -c 'cd /vagrant && bash -i rake db:migrate RAILS_ENV=development'"
+  action :run
 end
 
-execute 'migrate-test-database' do
-  command 'rake db:migrate RAILS_ENV=test'
+bash 'migrate-test-database' do
+  code  "su vagrant -l -c 'cd /vagrant && bash -i rake db:migrate RAILS_ENV=test'"
+  action :run
 end
 
