@@ -34,3 +34,8 @@ bash 'migrate-test-database' do
   action :run
 end
 
+bash 'rubymine-debug' do
+  code  "su vagrant -l -c 'bash -i gem install ruby-debug-ide'"
+  action :run
+end
+
