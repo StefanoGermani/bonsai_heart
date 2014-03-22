@@ -34,6 +34,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe 'postgresql::server'
     chef.add_recipe 'postgresql::libpq'
     chef.add_recipe 'bonsai_heart_installer'
+    chef.add_recipe 'phantomjs::default'
 
     chef.json = {
         rbenv: {

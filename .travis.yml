@@ -6,6 +6,9 @@ cache: bundler
 before_script:
   - cp config/database.travis.yml config/database.yml
   - psql -c 'create database bonsai_heart_test;' -U postgres
+script:
+  - rake
+  - teaspoon
 deploy:
   provider: heroku
   api_key:
