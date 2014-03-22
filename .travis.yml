@@ -8,7 +8,7 @@ before_script:
   - psql -c 'create database bonsai_heart_test;' -U postgres
 script:
   - rake
-  - teaspoon
+  - bundle exec teaspoon
 deploy:
   provider: heroku
   api_key:
