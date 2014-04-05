@@ -7,7 +7,7 @@ before_script:
   - cp config/database.travis.yml config/database.yml
   - psql -c 'create database bonsai_heart_test;' -U postgres
 script:
-  - rake
+  - bundle exec rake
   - bundle exec teaspoon
 deploy:
   provider: heroku
