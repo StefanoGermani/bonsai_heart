@@ -1,4 +1,4 @@
 # for more details see: http://emberjs.com/guides/models/defining-models/
 
-BonsaiHeart.Organization = DS.Model.extend
+BonsaiHeart.Bonsai = DS.Model.extend
   name: DS.attr 'string'

@@ -2,10 +2,12 @@
 <html>
 <head>
   <title>BonsaiHeart</title>
-  <%= stylesheet_link_tag 'application', :media => 'all' %>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+  <%= stylesheet_link_tag 'emberapp', :media => 'all' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="emberapp">
 <%= javascript_include_tag 'application' %>
 </body>
 </html>
