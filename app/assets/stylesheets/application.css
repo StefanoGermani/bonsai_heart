@@ -61,11 +61,11 @@
     border-top-right-radius: 0;
 }
 
-.navbar {
+.home-navbar {
     margin-bottom: 0px;
 }
 
-.navbar-brand {
+.home-navbar-brand {
     font-size: 30px;
     line-height: normal;
     padding: 0px;
@@ -73,7 +73,7 @@
     height: 40px;
 }
 
-.navbar-right, .navbar-left {
+.home-navbar-right, .home-navbar-left {
     margin: 15px 15px 10px 15px;
     padding-top: 3px;
     line-height: normal;
