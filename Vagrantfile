@@ -19,7 +19,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ['modifyvm', :id, '--memory', '2048']
   end
 
-  config.vm.provision 'shell', inline: 'apt-get update -y && sudo apt-get install curl -y && curl -L https://www.opscode.com/chef/install.sh | sudo bash'
+  config.vm.provision 'shell', inline: 'sudo apt-get update -y && sudo apt-get upgrade -y && sudo apt-get install curl -y && curl -L https://www.opscode.com/chef/install.sh | sudo bash'
 
   config.vm.provision 'chef_solo' do |chef|
 
@@ -40,10 +40,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         rbenv: {
             user_installs: [{
                                 user: 'vagrant',
-                                rubies: ['2.0.0-p353'],
-                                global: '2.0.0-p353',
+                                rubies: ['2.1.1'],
+                                global: '2.1.1',
                                 gems: {
-                                    '2.0.0-p353' => [
+                                    '2.1.1' => [
                                         {name: 'bundler'}
                                     ]
                                 }

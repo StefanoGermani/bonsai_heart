@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '2.1.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.3'
+gem 'rails', '4.1.0'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -19,16 +19,16 @@ gem 'versionist'
 gem 'devise'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '>= 4.0.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '>= 4.0.0'
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails', '3.0.4'
+gem 'jquery-rails', '>= 3.0.4'
 
 # Unicorn server
 gem 'unicorn'
@@ -46,7 +46,7 @@ end
 
 group :development, :test do
   gem 'therubyracer'
-  gem 'rspec-rails', '3.0.0.beta2'
+  gem 'rspec-rails', '>= 3.0.0.beta2'
   gem 'shoulda'
   gem 'factory_girl_rails'
   gem 'minitest-reporters'
