@@ -8,12 +8,8 @@ before_script:
   - psql -c 'create database bonsai_heart_test;' -U postgres
   - bundle exec rake db:migrate RAILS_ENV=test
 script:
-<<<<<<< HEAD
   - bundle exec rake spec
-=======
-  - bundle exec rake
   - bundle exec teaspoon
->>>>>>> parent of 5ced351... removed teaspoon call from travis
 deploy:
   provider: heroku
   api_key:
