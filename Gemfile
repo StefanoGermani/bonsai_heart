@@ -41,7 +41,8 @@ end
 
 group :development, :test do
   gem 'therubyracer'
-  gem 'rspec-rails', '>= 3.0.0.beta2'
+  gem 'qunit-rails'
+  gem 'teaspoon'
   gem 'shoulda'
   gem 'factory_girl_rails'
   gem 'minitest-reporters'
