@@ -30,6 +30,11 @@ gem 'coffee-rails', '>= 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '>= 3.0.4'
 
+# this is an optional gem, it provides a high performance replacement
+# to String#blank? a method that is called quite frequently in current
+# ActiveRecord, this may change in the future
+gem 'fast_blank'
+
 # Unicorn server
 gem 'unicorn'
 
