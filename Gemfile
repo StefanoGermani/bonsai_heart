@@ -43,6 +43,7 @@ group :development, :test do
   gem 'therubyracer'
   gem 'qunit-rails'
   gem 'teaspoon'
+  gem 'rspec-rails'
   gem 'shoulda'
   gem 'factory_girl_rails'
   gem 'minitest-reporters'
