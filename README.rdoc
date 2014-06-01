@@ -1,3 +1,5 @@
 == README
 
+[![Build Status](https://travis-ci.org/StefanoGermani/bonsai_heart.svg?branch=master)](https://travis-ci.org/StefanoGermani/bonsai_heart)
+
 BonsaiHeart app
