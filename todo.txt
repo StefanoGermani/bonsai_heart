@@ -1,0 +1,18 @@
+BonsaiHeart ToDo list
+
+
+Features
+* Manage list of bonsais
+
+
+User Stories
+* As a user I want to manage a list of my bonsais so that I can keep track of them
+- As a user I want to add information to my bonsai so that I can differentiate them
+- As a user I want to add a picture to my bonsai so that I can recognise them
+- As a user I want to search for a bonsai in my list so that I can find one quickly
+
+Tasks
+* Create bonsai list
+- Add bonsai to the list
+- Remove bonsai from the list
+- Edit bonsai in the list

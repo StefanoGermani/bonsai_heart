@@ -1,6 +1,8 @@
 # http://emberjs.com/guides/models/using-the-store/
 
-BonsaiHeart.Store = DS.Store.extend
+BonsaiHeart.ApplicationAdapter = DS.FixtureAdapter.extend();
+
+#BonsaiHeart.Store = DS.Store.extend
   # Override the default adapter with the `DS.ActiveModelAdapter` which
   # is built to work nicely with the ActiveModel::Serializers gem.
-  adapter: 'ams'
+#  adapter: 'ams'
