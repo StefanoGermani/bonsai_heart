@@ -1,5 +1,7 @@
 # Teaspoon includes some support files, but you can use anything from your own support path too.
+# require support/expect
 # require support/sinon
+# require support/chai
 # require support/your-support-file
 #
 # PhantomJS (Teaspoons default driver) doesn't have support for Function.prototype.bind, which has caused confusion.
@@ -14,26 +16,24 @@
 # setTimeout(Teaspoon.execute, 1000)
 #
 # Matching files
-# By default Teaspoon will look for files that match _test.{js,js.coffee,.coffee}. Add a filename_test.js file in your
-# test path and it'll be included in the default suite automatically. If you want to customize suites, check out the
+# By default Teaspoon will look for files that match _spec.{js,js.coffee,.coffee}. Add a filename_spec.js file in your
+# spec path and it'll be included in the default suite automatically. If you want to customize suites, check out the
 # configuration in config/initializers/teaspoon.rb
 #
 # Manifest
-# If you'd rather require your test files manually (to control order for instance) you can disable the suite matcher in
+# If you'd rather require your spec files manually (to control order for instance) you can disable the suite matcher in
 # the configuration and use this file as a manifest.
 #
 # For more information: http://github.com/modeset/teaspoon
 #
+# Chai
+# If you're using Chai, you'll probably want to initialize your preferred assertion style. You can read more about Chai
+# at: http://chaijs.com/guide/styles
+#
+# window.assert = chai.assert
+# window.expect = chai.expect
+# window.should = chai.should()
+#
 # You can require your own javascript files here. By default this will include everything in application, however you
-# may get better load performance if you require the specific files that are being used in the test that tests them.
+# may get better load performance if you require the specific files that are being used in the spec that tests them.
 #= require application
-#= require_tree .
-#= require_self
-
-
-document.write('<div id="ember-testing-container"><div id="ember-testing"></div></div>')
-document.write('<style>#ember-testing-container { position: absolute; background: white; bottom: 0; right: 0; width: 640px; height: 384px; overflow: auto; z-index: 9999; border: 1px solid #ccc; } #ember-testing { zoom: 50%; }</style>')
-
-BonsaiHeart.rootElement = '#ember-testing'
-BonsaiHeart.setupForTesting()
-BonsaiHeart.injectTestHelpers()
