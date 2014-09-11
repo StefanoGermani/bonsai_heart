@@ -1,5 +1,18 @@
 == README
 
-[![Build Status](https://travis-ci.org/StefanoGermani/bonsai_heart.svg?branch=master)](https://travis-ci.org/StefanoGermani/bonsai_heart)
+{<img src="https://travis-ci.org/StefanoGermani/bonsai_heart.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/StefanoGermani/bonsai_heart]
 
 BonsaiHeart app
+
+
+- Ruby on Rails 4
+- Emberjs
+- Coffescript
+- Rspec
+- FactoryGirl
+- Devise
+- QUnit
+
+
+
+Continuous deployment to Heroku
